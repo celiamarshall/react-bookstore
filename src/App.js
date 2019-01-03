@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import BookList from './BookList'
+import AddBook from './AddBook'
+import RemoveBook from './RemoveBook'
 
 class App extends Component {
 
@@ -8,11 +10,20 @@ class App extends Component {
       <div className="container">
         <h1>Bookstore</h1>
         <BookList />
+        <hr/>
+        <h2>For Admin: </h2>
+        <div className="row">
+          <div className="col-md-6">
+            <AddBook />
+          </div>
+          <div className="col-md-6">
+            <RemoveBook />
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-//Do we need to let the admin add and delete books? Do we need to add authorization for that?
 
 export default App;

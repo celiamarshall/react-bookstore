@@ -61,7 +61,7 @@ class BookList extends Component {
     })
   }
 
-  //Without a way to GET the books that are in the cart, is using state the only option? (Problem is, the books in cart disappear upon reload)
+  //Without a route to GET the books that are in the cart, is using state the only option? (Problem is, the books in cart disappear upon reload)
 
   render() {
     return (
@@ -73,7 +73,7 @@ class BookList extends Component {
               <div className='form-group'>
                 <input className='form-control' type='text' id='search' placeholder='Search by Title or Author' onChange={this.handleChange} required />
               </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-secondary">Search</button>
             </form>
           </div>
           <div>
