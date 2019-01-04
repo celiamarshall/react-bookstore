@@ -34,7 +34,7 @@ class BookList extends Component {
 
   handleChange = (event) => {
     this.setState({
-      search: event.target.value
+      search: event.target.value.toLowerCase()
     })
   }
 
@@ -44,7 +44,7 @@ class BookList extends Component {
     axios.get('http://localhost:8082/api/books')
       .then(response => {
         const searchedItems = response.data.filter(book => {
-          return book.title === this.state.search || book.author === this.state.search
+          return book.title.toLowerCase().includes(this.state.search) || book.author.toLowerCase().includes(this.state.search)
         })
 
         this.setState({
