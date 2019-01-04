@@ -30,4 +30,10 @@ body {
   margin-right: 10px;
 }
 
+.trash {
+  display: flex;
+  justify-content: center;
+  max-height: 30px;
+}
+
 

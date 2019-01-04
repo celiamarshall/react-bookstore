@@ -62,6 +62,13 @@ class BookList extends Component {
       })
   }
 
+  handleTrashItem = (id) => {
+    axios.patch(`${process.env.REACT_APP_BASE_URL}/cart/remove/${id}`)
+    .then(() => {
+      this.getBooks()
+    })
+  }
+
   handleEditBooks = () => {
     this.setState({
       editingBooks: !this.state.editingBooks
@@ -143,7 +150,7 @@ class BookList extends Component {
 
 
             <div className='col-md-4'>
-              <CartItems items={this.state.books.filter(book => book.inCart)} />
+              <CartItems items={this.state.books.filter(book => book.inCart)} handleTrashItem={this.handleTrashItem} />
             </div>
           </div>
         }

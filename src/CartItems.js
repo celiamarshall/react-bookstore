@@ -3,7 +3,7 @@ import CartItem from './CartItem'
 import Total from './Total'
 
 
-function CartItems({ items }) {
+function CartItems({ items, handleTrashItem }) {
   return (
     <div className='cart'>
       <h2>Cart</h2>
@@ -17,7 +17,7 @@ function CartItems({ items }) {
           </div>
         </div>
         {items.map(book => {
-          return <CartItem key={book.id} {...book} />
+          return <CartItem key={book.id} {...book} handleTrashItem={handleTrashItem}/>
         })}
       </div>
     </div>
