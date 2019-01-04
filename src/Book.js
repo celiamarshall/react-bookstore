@@ -6,7 +6,7 @@ function Book({id, title, author, price, handleAddToCart}) {
       <div className="row">
         <div className="col-md-6">{title}</div>
         <div className="col-md-2">{author}</div>
-        <div className="col-md-2">${price}</div>
+        <div className="col-md-2">${price.toFixed(2)}</div>
         <button className="col-md-2 btn btn-secondary" onClick={() => handleAddToCart(id)}>Add to Cart</button>
       </div>
     </div>

@@ -5,7 +5,7 @@ function CartItem({ title, price }) {
     <div className="list-group-item">
       <div className="row">
         <div className="col-md-10">{title}</div>
-        <div className="col-md-2">${price}</div>
+        <div className="col-md-2">${price.toFixed(2)}</div>
       </div>
     </div>
   )

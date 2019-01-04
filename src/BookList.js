@@ -81,9 +81,9 @@ class BookList extends Component {
             <div className="list-group">
               <div className="list-group-item">
                 <div className="row">
-                  <div className="col-md-6">Title</div>
-                  <div className="col-md-2">Author</div>
-                  <div className="col-md-2">Price</div>
+                  <div className="col-md-6" ><strong>Title</strong></div>
+                  <div className="col-md-2"><strong>Author</strong></div>
+                  <div className="col-md-2"><strong>Price</strong></div>
                 </div>
               </div>
               {this.state.books.map(book => {
