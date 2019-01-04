@@ -20,4 +20,14 @@ body {
   width: 100% !important;
 }
 
+.admin {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.admin-text {
+  margin-right: 10px;
+}
+
 
