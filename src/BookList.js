@@ -22,7 +22,7 @@ class BookList extends Component {
   }
 
   getBooks = () => {
-    axios.get('http://localhost:8082/api/books')
+    axios.get(process.env.REACT_APP_BASE_URL)
       .then(response => {
         this.setState({ books: response.data })
       })
@@ -40,7 +40,7 @@ class BookList extends Component {
   handleSearch = (event) => {
     event.preventDefault()
 
-    axios.get('http://localhost:8082/api/books')
+    axios.get(process.env.REACT_APP_BASE_URL)
       .then(response => {
         const searchedItems = response.data.filter(book => {
           return book.title.toLowerCase().includes(this.state.search) || book.author.toLowerCase().includes(this.state.search)
@@ -58,7 +58,7 @@ class BookList extends Component {
 
   handleAddToCart = (id) => {
     const addedBook = this.state.books.filter(book => book.id === id)
-    axios.patch(`http://localhost:8082/api/books/cart/add/${id}`)
+    axios.patch(`${process.env.REACT_APP_BASE_URL}/cart/add/${id}`)
     this.setState({
       booksInCart: [...this.state.booksInCart, addedBook[0]]
     })
@@ -73,7 +73,7 @@ class BookList extends Component {
   //Without a route to GET the books that are in the cart, is using state the only option? (Problem is, the books in cart disappear upon reload)
 
   handleNewBook = (title, subtitle, author, published, publisher, pages, description, website) => {
-    axios.post('http://localhost:8082/api/books', {
+    axios.post(process.env.REACT_APP_BASE_URL, {
       title,
       subtitle,
       author,
@@ -92,7 +92,7 @@ class BookList extends Component {
   }
 
   handleRemoveBook = (id) => {
-    axios.delete(`http://localhost:8082/api/books/${id}`)
+    axios.delete(`${process.env.REACT_APP_BASE_URL}/${id}`)
       .then(() => {
         this.getBooks()
       })
