@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BookList from './BookList'
-import AddBook from './AddBook'
-import RemoveBook from './RemoveBook'
+// import AddBook from './AddBook'
+// import RemoveBook from './RemoveBook'
 
 class App extends Component {
 
@@ -10,7 +10,7 @@ class App extends Component {
       <div className="container">
         <h1>Bookstore</h1>
         <BookList />
-        <hr/>
+        {/* <hr/>
         <h2>For Admin: </h2>
         <div className="row">
           <div className="col-md-6">
@@ -19,7 +19,7 @@ class App extends Component {
           <div className="col-md-6">
             <RemoveBook />
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }

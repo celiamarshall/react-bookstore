@@ -8,8 +8,8 @@ function CartItems({ items }) {
       <div className="list-group">
         <div className="list-group-item">
           <div className="row">
-            <div className="col-md-10"><strong>Title</strong></div>
-            <div className="col-md-2"><strong>Price</strong></div>
+            <div className="col-md-9"><strong>Title</strong></div>
+            <div className="col-md-3"><strong>Price</strong></div>
           </div>
         </div>
         {items.map(book => {
