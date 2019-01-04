@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Search from './Search'
 import Book from './Book'
 import CartItems from './CartItems'
 import Total from './Total'
@@ -106,13 +107,7 @@ class BookList extends Component {
       <div>
         <div className='row'>
           <div className='col-md-6'>
-            <form className='form-inline' onSubmit={this.handleSearch}>
-              <div className='form-group'>
-                <input className='form-control' type='text' id='search' placeholder='Search by Title or Author' onChange={this.handleChange}
-                  required />
-              </div>
-              <button type="submit" className="btn btn-secondary">Search</button>
-            </form>
+            <Search handleChange={this.handleChange} handleSearch={this.handleSearch}/>
           </div>
         </div>
 
