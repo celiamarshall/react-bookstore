@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Search from './Search'
 import Book from './Book'
 import CartItems from './CartItems'
-import Total from './Total'
 import AddBook from './AddBook'
 import RemoveBook from './RemoveBook'
 import axios from 'axios'
@@ -106,7 +105,7 @@ class BookList extends Component {
     return (
       <div>
         <div className='row'>
-          <div className='col-md-6'>
+          <div className='col-md-8'>
             <Search handleChange={this.handleChange} handleSearch={this.handleSearch}/>
           </div>
         </div>
@@ -131,7 +130,6 @@ class BookList extends Component {
 
           <div className='col-md-4'>
             <CartItems items={this.state.booksInCart} />
-            <Total items={this.state.booksInCart} />
           </div>
         </div>
 

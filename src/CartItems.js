@@ -1,10 +1,14 @@
 import React from 'react'
 import CartItem from './CartItem'
+import Total from './Total'
+
 
 function CartItems({ items }) {
   return (
     <div className='cart'>
       <h2>Cart</h2>
+      <Total items={items} />
+
       <div className="list-group">
         <div className="list-group-item">
           <div className="row">
