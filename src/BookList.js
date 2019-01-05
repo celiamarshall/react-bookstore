@@ -64,9 +64,9 @@ class BookList extends Component {
 
   handleTrashItem = (id) => {
     axios.patch(`${process.env.REACT_APP_BASE_URL}/cart/remove/${id}`)
-    .then(() => {
-      this.getBooks()
-    })
+      .then(() => {
+        this.getBooks()
+      })
   }
 
   handleEditBooks = () => {
@@ -107,9 +107,10 @@ class BookList extends Component {
   render() {
     return (
       <div>
+
         <div className='row'>
           <div className='col-md-8'>
-            <Search handleChange={this.handleChange} handleSearch={this.handleSearch} />
+            {this.state.editingBooks ? null : <Search handleChange={this.handleChange} handleSearch={this.handleSearch} />}
           </div>
           <div className='col-md-4 admin'>
             <h5 className='admin-text'>Admin</h5>
@@ -120,6 +121,7 @@ class BookList extends Component {
         </div>
 
         {this.state.editingBooks ?
+
           <div className="row">
             <div className="col-md-6">
               <AddBook handleNewBook={this.handleNewBook} />
@@ -147,12 +149,11 @@ class BookList extends Component {
                 })}
               </div>
             </div>
-
-
             <div className='col-md-4'>
               <CartItems items={this.state.books.filter(book => book.inCart)} handleTrashItem={this.handleTrashItem} />
             </div>
           </div>
+
         }
 
       </div>
