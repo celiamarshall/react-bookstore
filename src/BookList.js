@@ -31,28 +31,22 @@ class BookList extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({
-      search: event.target.value.toLowerCase()
+    if (event) {
+      this.setState({
+        search: event.target.value.toLowerCase()
+      })
+    }
+    return this.state.books.filter(book => {
+      return book.title.toLowerCase().includes(this.state.search) || book.author.toLowerCase().includes(this.state.search)
     })
   }
 
   handleSearch = (event) => {
     event.preventDefault()
 
-    axios.get(process.env.REACT_APP_BASE_URL)
-      .then(response => {
-        const searchedItems = response.data.filter(book => {
-          return book.title.toLowerCase().includes(this.state.search) || book.author.toLowerCase().includes(this.state.search)
-        })
-
-        this.setState({
-          books: searchedItems,
-          search: ''
-        })
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    this.setState({
+      search: ''
+    })
   }
 
   handleAddToCart = (id) => {
@@ -144,7 +138,7 @@ class BookList extends Component {
                     <div className="col-md-2"><strong>Price</strong></div>
                   </div>
                 </div>
-                {this.state.books.map(book => {
+                {this.handleChange().map(book => {
                   return <Book key={book.id} {...book} handleAddToCart={this.handleAddToCart} />
                 })}
               </div>
